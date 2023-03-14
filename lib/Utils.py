@@ -309,6 +309,7 @@ def calc_location(dimension, proj_matrix, box_2d, alpha, theta_ray):
             best_X = X_array
 
     # return best_loc, [left_constraints, right_constraints] # for debugging
+    if best_loc is None: return [0, 0, 0], best_X
     best_loc = [best_loc[0][0], best_loc[1][0], best_loc[2][0]]
     return best_loc, best_X
 
