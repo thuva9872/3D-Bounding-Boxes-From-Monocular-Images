@@ -141,9 +141,9 @@ def main():
 
         if FLAGS.show_2D:
             numpy_vertical = np.concatenate((truth_img, img), axis=0)
-            cv2.imshow('SPACE for next image, any other key to exit', numpy_vertical)
+            cv2.imwrite("/content/3D-Bounding-Boxes-From-Monocular-Images/Kitti/validation/out/" + id + ".jpg", img)
         else:
-            cv2.imshow('3D detections', img)
+            cv2.imwrite("/content/3D-Bounding-Boxes-From-Monocular-Images/Kitti/validation/out/" + id + ".jpg", img)
 
         print("\n")
         print('Got %s poses in %.3f seconds'%(len(detections), time.time() - start_time))
