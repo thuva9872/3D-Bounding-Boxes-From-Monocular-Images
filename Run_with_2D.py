@@ -81,7 +81,7 @@ def main():
     # calib_path = os.path.abspath(os.path.dirname(__file__)) + '/Kitti/testing/calib/'
    
     try:
-        ids = [x.split('/').split('.')[0] for x in sorted(glob.glob(img_path+'/*.png'))]
+        ids = [x.split('/')[-1].split('.')[0] for x in sorted(glob.glob(img_path+'/*.png'))]
     except:
         print("\nError: There are no images in %s"%img_path)
         exit()
