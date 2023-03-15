@@ -105,7 +105,7 @@ def main():
         if not FLAGS.hide_imgs:
             
             numpy_vertical = np.concatenate((truth_img,imgGT, img), axis=0)
-            cv2.imshow('2D detection on top, 3D Ground Truth on middle , 3D prediction on bottom', numpy_vertical)
+            cv2.imwrite("/content/3D-Bounding-Boxes-From-Monocular-Images/Kitti/validation/out/" + key + ".jpg", numpy_vertical)
             cv2.waitKey(0)
 
     print ("Finished.")

@@ -81,7 +81,7 @@ def main():
     # calib_path = os.path.abspath(os.path.dirname(__file__)) + '/Kitti/testing/calib/'
    
     try:
-        ids = [x.split('.')[0][-6:] for x in sorted(glob.glob(img_path+'/*.png'))]
+        ids = [x.split('/').split('.')[0] for x in sorted(glob.glob(img_path+'/*.png'))]
     except:
         print("\nError: There are no images in %s"%img_path)
         exit()
@@ -141,7 +141,7 @@ def main():
 
         if FLAGS.show_2D:
             numpy_vertical = np.concatenate((truth_img, img), axis=0)
-            cv2.imwrite("/content/3D-Bounding-Boxes-From-Monocular-Images/Kitti/validation/out/" + id + ".jpg", img)
+            cv2.imwrite("/content/3D-Bounding-Boxes-From-Monocular-Images/Kitti/validation/out/" + id + ".jpg", numpy_vertical)
         else:
             cv2.imwrite("/content/3D-Bounding-Boxes-From-Monocular-Images/Kitti/validation/out/" + id + ".jpg", img)
 
@@ -150,7 +150,7 @@ def main():
         print('-------------')
 
         
-        if cv2.waitKey(0) != 32: # space bar
+        if cv2.waitKey(0) == 32: # space bar
             exit()
 
 if __name__ == '__main__':
